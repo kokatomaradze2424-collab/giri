@@ -2,73 +2,469 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Giri — Support / მხარდაჭერა</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Giri: 30-Day Home Workout</title>
+<meta name="description" content="A 30-day home workout plan with no equipment. A coach video for every move, a daily menu and small wins every day. Download Giri on the App Store.">
+<meta name="theme-color" content="#12181F">
+<meta property="og:title" content="Giri: 30-Day Home Workout">
+<meta property="og:description" content="No equipment. Just 30 days. A coach video for every move and a daily menu that fits your goal.">
+<meta property="og:image" content="https://kokatomaradze2424-collab.github.io/giri/assets/og.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="apple-itunes-app" content="app-id=6820940443">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preload" href="assets/FiraGO-Bold.woff" as="font" type="font/woff" crossorigin>
 <style>
-  :root { --bg: #ffffff; --text: #1f2a37; --muted: #5b6776; --line: #e3e8ee; --accent: #1e8c46; }
-  @media (prefers-color-scheme: dark) { :root { --bg: #12171d; --text: #f2f5f8; --muted: #a3afbd; --line: #2a333d; --accent: #5ad684; } }
-  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
-  main { max-width: 720px; margin: 0 auto; padding: 32px 16px 64px; }
-  h1 { font-size: 28px; line-height: 1.25; margin: 0 0 4px; }
-  h2 { font-size: 19px; margin: 32px 0 8px; }
-  p, li { margin: 0 0 10px; }
-  ul { padding-left: 20px; margin: 0 0 10px; }
-  a { color: var(--accent); }
-  .muted { color: var(--muted); }
-  hr { border: 0; border-top: 1px solid var(--line); margin: 48px 0; }
+  @font-face { font-family: "FiraGO"; src: url("assets/FiraGO-Regular.woff") format("woff"); font-weight: 400; font-display: swap; }
+  @font-face { font-family: "FiraGO"; src: url("assets/FiraGO-Bold.woff") format("woff"); font-weight: 700; font-display: swap; }
+
+  /* One theme: Giri's dark ground (the icon and splash colour). One accent: mint. */
+  :root {
+    --bg: #12181F;
+    --surface: #19212B;
+    --surface-2: #202A36;
+    --line: #2A3542;
+    --text: #EEF2F6;
+    --muted: #9DAAB8;
+    --accent: #5CD684;
+    --accent-ink: #0E2A19;
+    --radius: 24px;
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 400 17px/1.6 "FiraGO", system-ui, -apple-system, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  }
+  img, video { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; }
+  h1, h2, h3 { font-weight: 700; margin: 0; letter-spacing: -0.02em; text-wrap: balance; }
+  p { margin: 0; }
+  .wrap { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 20px; }
+
+  /* Header */
+  header { position: sticky; top: 0; z-index: 10; background: rgb(18 24 31 / 0.82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgb(255 255 255 / 0.05); }
+  .nav { height: 68px; display: flex; align-items: center; gap: 16px; }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700; font-size: 20px; }
+  .brand img { width: 36px; height: 36px; border-radius: 9px; }
+  .langs { margin-left: auto; display: flex; gap: 2px; background: var(--surface); border-radius: 999px; padding: 4px; }
+  .langs button {
+    font: 700 13px/1 "FiraGO", system-ui, sans-serif; color: var(--muted); background: none; border: 0;
+    padding: 8px 10px; border-radius: 999px; cursor: pointer; transition: color .2s, background .2s;
+  }
+  .langs button[aria-pressed="true"] { background: var(--surface-2); color: var(--text); }
+  .langs button:focus-visible, .store:focus-visible, a:focus-visible, .strip:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  .store { display: inline-block; border-radius: 10px; transition: transform .2s var(--ease); }
+  .store:active { transform: scale(0.97); }
+  .store img { height: 56px; width: auto; }
+  .nav .store img { height: 40px; }
+
+  /* Hero: copy left, two real screenshots right */
+  .hero { padding: 56px 0 40px; }
+  .hero .wrap { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 48px; align-items: center; min-height: min(calc(100dvh - 68px - 96px), 760px); }
+  /* Two lines in every language: each line stays whole, longer languages get a smaller size. */
+  .hero h1 { font-size: clamp(40px, 6vw, 72px); line-height: 1.04; }
+  .hero h1 span { display: block; white-space: nowrap; }
+  html[lang="de"] .hero h1 { font-size: clamp(34px, 5.2vw, 64px); }
+  html[lang="ka"] .hero h1 { font-size: clamp(34px, 3.9vw, 56px); line-height: 1.15; }
+  .hero h1 .accent { color: var(--accent); }
+  .hero p { margin-top: 20px; font-size: 19px; color: var(--muted); max-width: 30em; }
+  .hero .store { margin-top: 32px; }
+  /* Two iPhones (a CSS frame around real screenshots) with floating glass cards. */
+  .phones { position: relative; height: min(660px, 76vh); }
+  .phone {
+    position: absolute; padding: 2.2%; border-radius: 13% / 6%;
+    background: linear-gradient(150deg, #3B4048 0%, #121418 32%, #0B0C0F 68%, #353A42 100%);
+    box-shadow: inset 0 0 0 1.5px #4A5059, inset 0 0 0 4px #0A0B0D, 0 40px 90px rgb(3 6 10 / 0.6);
+  }
+  .phone::before, .phone::after { content: ""; position: absolute; width: 3px; border-radius: 2px; background: #2C3037; }
+  .phone::before { right: -3px; top: 24%; height: 11%; }
+  .phone::after { left: -3px; top: 20%; height: 7%; box-shadow: 0 calc(var(--h, 520px) * 0.09) 0 #2C3037; }
+  .screen { position: relative; border-radius: 11% / 5.1%; overflow: hidden; background: #000; }
+  .screen img { width: 100%; aspect-ratio: 720 / 1561; object-fit: cover; }
+  .screen::before { content: ""; position: absolute; z-index: 1; top: 1.3%; left: 50%; translate: -50% 0; width: 31%; height: 3.4%; border-radius: 999px; background: #000; }
+  .phone.a { width: 46%; left: 0; top: 9%; rotate: -7deg; --h: 470px; }
+  .phone.b { width: 52%; right: 3%; top: 0; rotate: 4deg; z-index: 1; --h: 540px; }
+
+  .chip {
+    position: absolute; z-index: 2; display: flex; align-items: center; gap: 12px;
+    padding: 12px 18px 12px 12px; border-radius: 22px;
+    background: rgb(36 46 58 / 0.72); backdrop-filter: blur(18px) saturate(160%); -webkit-backdrop-filter: blur(18px) saturate(160%);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.12), 0 0 0 1px rgb(255 255 255 / 0.08), 0 18px 40px rgb(3 6 10 / 0.45);
+    white-space: nowrap;
+  }
+  .chip b { font-size: 28px; line-height: 1; letter-spacing: -0.02em; }
+  .chip small { display: block; font-size: 13px; color: var(--muted); line-height: 1.2; }
+  .chip .ico { width: 44px; height: 44px; border-radius: 14px; display: grid; place-items: center; font-weight: 700; font-size: 15px; color: var(--accent-ink); background: var(--accent); flex: none; }
+  .chip img.face { width: 44px; height: 44px; border-radius: 14px; object-fit: cover; flex: none; }
+  .chip.xp { left: 22%; bottom: 13%; }
+  .chip.coach { right: -2%; top: 20%; padding-right: 16px; font-weight: 700; font-size: 15px; }
+  .chip.time { left: -2%; top: 1%; font-weight: 700; font-size: 15px; }
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) { .chip { background: #243040; } }
+
+  section { padding: 96px 0; }
+  .lead { font-size: clamp(30px, 4vw, 48px); line-height: 1.1; max-width: 16em; }
+  .sub { margin-top: 16px; color: var(--muted); max-width: 36em; font-size: 18px; }
+
+  /* Coach: four real looping clips */
+  .clips { margin-top: 48px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; padding-bottom: 32px; }
+  .clip { border-radius: var(--radius); overflow: hidden; background: var(--surface); aspect-ratio: 1; }
+  .clip:nth-child(even) { margin-top: 32px; margin-bottom: -32px; }
+  .clip video { width: 100%; height: 100%; object-fit: cover; }
+
+  /* Bento: four cells, mixed sizes */
+  .bento { margin-top: 48px; display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+  .cell { border-radius: var(--radius); background: var(--surface); overflow: hidden; display: flex; flex-direction: column; }
+  .cell .txt { padding: 28px 28px 0; }
+  .cell h3 { font-size: 24px; line-height: 1.15; }
+  .cell p { margin-top: 8px; color: var(--muted); font-size: 16px; }
+  .cell .shot { margin: 24px auto 0; width: 62%; border-radius: 20px 20px 0 0; overflow: hidden; box-shadow: 0 0 0 1px rgb(255 255 255 / 0.10); }
+  .cell .shot img { width: 100%; aspect-ratio: 640 / 700; object-fit: cover; object-position: top; }
+  .c-menu { grid-column: span 4; background: linear-gradient(160deg, #1D3326 0%, var(--surface) 62%); }
+  .c-menu .shot { width: 44%; }
+  .c-photo { grid-column: span 2; }
+  .c-photo .shot { width: 78%; }
+  .c-wins { grid-column: span 2; background: linear-gradient(200deg, #3A2A1A 0%, var(--surface) 58%); }
+  .c-wins .shot { width: 78%; }
+  .c-giri { grid-column: span 4; flex-direction: row; align-items: center; background: radial-gradient(120% 140% at 85% 30%, #24402F 0%, var(--surface) 60%); }
+  .c-giri .txt { padding: 28px; flex: 1; }
+  .c-giri img { width: 34%; max-width: 260px; margin: 16px 28px 0 0; align-self: flex-end; }
+  .tag { display: inline-block; margin-top: 12px; font-size: 13px; font-weight: 700; color: var(--accent-ink); background: var(--accent); border-radius: 999px; padding: 3px 10px; }
+
+  /* Kind: statements in a plain grid, no cards */
+  .kind { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px 64px; margin-top: 48px; max-width: 900px; }
+  .kind h3 { font-size: 20px; }
+  .kind p { margin-top: 6px; color: var(--muted); }
+
+  /* Look inside: scroll-snap strip of screenshots */
+  .strip { margin-top: 40px; display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 8px 20px 24px; scrollbar-width: thin; scrollbar-color: var(--line) transparent; }
+  .strip img { flex: 0 0 auto; width: 280px; aspect-ratio: 720 / 1280; object-fit: cover; border-radius: 26px; box-shadow: 0 0 0 1px rgb(255 255 255 / 0.10); scroll-snap-align: center; }
+  @media (min-width: 1180px) { .strip { padding-left: calc((100vw - 1180px) / 2 + 20px); } }
+
+  /* Final call */
+  .final { text-align: center; padding: 120px 0 104px; background: radial-gradient(60% 70% at 50% 100%, #1C3526 0%, var(--bg) 70%); }
+  .final img.giri { width: 180px; margin: 0 auto 24px; }
+  .final h2 { font-size: clamp(34px, 5vw, 56px); line-height: 1.06; }
+  .final p { margin: 16px auto 0; color: var(--muted); max-width: 30em; }
+  .final .store { margin-top: 32px; }
+
+  footer { border-top: 1px solid var(--line); padding: 40px 0 56px; font-size: 15px; color: var(--muted); }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: baseline; justify-content: space-between; }
+  footer nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+  footer a { text-decoration: none; }
+  footer a:hover { color: var(--text); }
+  .help a { color: var(--accent); }
+
+  /* Entrance and scroll reveal: the hero reads first, then each section as it arrives. */
+  @media (prefers-reduced-motion: no-preference) {
+    .js .rise { opacity: 0; translate: 0 24px; transition: opacity .8s var(--ease), translate .8s var(--ease); transition-delay: calc(var(--i, 0) * 90ms); }
+    .js .rise.in { opacity: 1; translate: 0 0; }
+    .store:hover { transform: translateY(-2px); }
+  }
+
+  @media (max-width: 900px) {
+    .hero { padding-top: 32px; }
+    .hero .wrap { grid-template-columns: 1fr; min-height: 0; gap: 40px; }
+    .phones { height: 520px; max-width: 420px; width: 100%; margin: 0 auto; }
+    .bento { grid-template-columns: 1fr; }
+    .c-menu, .c-photo, .c-wins, .c-giri { grid-column: auto; }
+    .c-menu .shot, .c-photo .shot, .c-wins .shot { width: 62%; }
+    .c-giri { flex-direction: column; align-items: stretch; }
+    .c-giri img { width: 52%; margin: 0 auto; align-self: center; }
+  }
+  @media (max-width: 767px) {
+    body { font-size: 16px; }
+    .wrap { padding: 0 16px; }
+    section { padding: 72px 0; }
+    .nav .store { display: none; }
+    .clips { grid-template-columns: repeat(2, 1fr); gap: 12px; padding-bottom: 0; }
+    .clip:nth-child(even) { margin: 0; }
+    .kind { grid-template-columns: 1fr; gap: 28px; }
+    .strip { padding: 8px 16px 24px; }
+    .strip img { width: 240px; }
+    .store img { height: 52px; }
+    .phones { height: 470px; }
+    .chip { padding: 9px 14px 9px 9px; gap: 9px; border-radius: 18px; }
+    .chip b { font-size: 22px; }
+    .chip .ico, .chip img.face { width: 34px; height: 34px; border-radius: 11px; font-size: 12px; }
+    .chip.coach, .chip.time { font-size: 13px; }
+    .chip.coach { right: 0; top: 16%; }
+    .chip.xp { left: 4%; }
+  }
+  @media (max-width: 380px) { .langs button { padding: 8px 7px; } }
 </style>
+<script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="./" aria-label="Giri">
+      <img src="assets/icon-256.png" alt="" width="36" height="36">
+      <span>Giri</span>
+    </a>
+    <div class="langs" role="group" aria-label="Language">
+      <button type="button" data-lang="en">EN</button>
+      <button type="button" data-lang="ka">KA</button>
+      <button type="button" data-lang="es">ES</button>
+      <button type="button" data-lang="de">DE</button>
+    </div>
+    <a class="store" href="https://apps.apple.com/app/id6820940443" data-i18n-aria="store">
+      <img src="assets/appstore-badge.svg" alt="Download on the App Store" width="120" height="40">
+    </a>
+  </div>
+</header>
+
 <main>
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1 class="rise" style="--i:0"><span data-i18n="h1a">30 days. At home.</span><span class="accent" data-i18n="h1b">No equipment.</span></h1>
+        <p class="rise" style="--i:1" data-i18n="heroSub">A coach video for every move, a daily menu and a plan built around your week.</p>
+        <a class="store rise" style="--i:2" href="https://apps.apple.com/app/id6820940443" data-i18n-aria="store">
+          <img src="assets/appstore-badge.svg" alt="Download on the App Store" width="168" height="56">
+        </a>
+      </div>
+      <div class="phones" aria-hidden="true">
+        <div class="phone a"><div class="screen"><img src="assets/full-01-path.webp" alt="" width="720" height="1561" fetchpriority="high"></div></div>
+        <div class="phone b"><div class="screen"><img src="assets/full-02-workout.webp" alt="" width="720" height="1561"></div></div>
+        <div class="chip coach"><img class="face" src="assets/coach-squat.webp" alt="" width="44" height="44"><span data-i18n="chipCoach">Coach video for every move</span></div>
+        <div class="chip xp"><span class="ico">XP</span><span><b>+20</b><small data-i18n="chipXp">Workout complete</small></span></div>
+        <div class="chip time"><span data-i18n="chipTime">6 exercises, 12 min</span></div>
+      </div>
+    </div>
+  </div>
 
-<section lang="en">
-<h1>Giri — Support</h1>
-<p class="muted">A 30-day workout and nutrition program</p>
+  <section id="coach">
+    <div class="wrap">
+      <h2 class="lead rise" data-i18n="coachTitle">A coach shows you every move.</h2>
+      <p class="sub rise" data-i18n="coachSub">Watch the move, follow the count. Sessions from 10 to 45 minutes, with easier swaps for sore knees, back or wrists.</p>
+      <div class="clips">
+        <div class="clip rise" style="--i:0"><video muted loop playsinline preload="none" poster="assets/coach-squat.webp" data-src="assets/coach-squat.mp4" aria-label="Squat"></video></div>
+        <div class="clip rise" style="--i:1"><video muted loop playsinline preload="none" poster="assets/coach-push_up.webp" data-src="assets/coach-push_up.mp4" aria-label="Push-up"></video></div>
+        <div class="clip rise" style="--i:2"><video muted loop playsinline preload="none" poster="assets/coach-reverse_lunge.webp" data-src="assets/coach-reverse_lunge.mp4" aria-label="Reverse lunge"></video></div>
+        <div class="clip rise" style="--i:3"><video muted loop playsinline preload="none" poster="assets/coach-jumping_jack.webp" data-src="assets/coach-jumping_jack.mp4" aria-label="Jumping jack"></video></div>
+      </div>
+    </div>
+  </section>
 
-<h2>Contact</h2>
-<p>A question, a bug or an idea? Write to <a href="mailto:kokabasket@hotmail.com">kokabasket@hotmail.com</a>. We usually reply within a few days.</p>
+  <section id="features">
+    <div class="wrap">
+      <h2 class="lead rise" data-i18n="bentoTitle">Everything for the day, in one place.</h2>
+      <div class="bento">
+        <article class="cell c-menu rise" style="--i:0">
+          <div class="txt">
+            <h3 data-i18n="menuTitle">A menu that fits your goal</h3>
+            <p data-i18n="menuSub">Meals matched to your calories and protein. Swap what you don't fancy, get a grocery list.</p>
+          </div>
+          <div class="shot"><img src="assets/shot-03-menu.webp" alt="" loading="lazy" width="640" height="1326"></div>
+        </article>
+        <article class="cell c-photo rise" style="--i:1">
+          <div class="txt">
+            <h3 data-i18n="photoTitle">Snap your plate</h3>
+            <p data-i18n="photoSub">Take a photo and Giri estimates the calories.</p>
+            <span class="tag">Giri Plus</span>
+          </div>
+          <div class="shot"><img src="assets/shot-06-photo-meal.webp" alt="" loading="lazy" width="640" height="1326"></div>
+        </article>
+        <article class="cell c-wins rise" style="--i:0">
+          <div class="txt">
+            <h3 data-i18n="winsTitle">Small wins every day</h3>
+            <p data-i18n="winsSub">Daily quests, a streak to keep and a weekly league.</p>
+          </div>
+          <div class="shot"><img src="assets/shot-04-quests.webp" alt="" loading="lazy" width="640" height="1326"></div>
+        </article>
+        <article class="cell c-giri rise" style="--i:1">
+          <div class="txt">
+            <h3 data-i18n="giriTitle">Meet Giri, your training buddy</h3>
+            <p data-i18n="giriSub">A one-minute lesson a day on food, sleep and habits, a water goal and friendly reminders at your usual time.</p>
+          </div>
+          <img src="assets/giri-mascot.webp" alt="Giri, the kettlebell mascot" loading="lazy" width="520" height="594">
+        </article>
+      </div>
+    </div>
+  </section>
 
-<h2>Common questions</h2>
-<ul>
-  <li><strong>How do I cancel Giri Plus?</strong> iPhone Settings → your name → Subscriptions → Giri.</li>
-  <li><strong>How do I restore a purchase?</strong> On the Giri Plus screen, tap “Restore purchases”.</li>
-  <li><strong>How do I delete my data?</strong> In the app: Settings → Data → “Delete everything”.</li>
-</ul>
+  <section id="kind">
+    <div class="wrap">
+      <h2 class="lead rise" data-i18n="kindTitle">Made to be kind.</h2>
+      <div class="kind">
+        <div class="rise" style="--i:0"><h3 data-i18n="k1t">No account, no sign-up</h3><p data-i18n="k1">Open the app and start. Your profile and progress stay on your phone.</p></div>
+        <div class="rise" style="--i:1"><h3 data-i18n="k2t">Safe limits</h3><p data-i18n="k2">No calorie cutting for under-18s or during pregnancy, and no crash diets.</p></div>
+        <div class="rise" style="--i:2"><h3 data-i18n="k3t">Free to start</h3><p data-i18n="k3">The beginner program is free. Giri Plus adds harder programs and extras.</p></div>
+        <div class="rise" style="--i:3"><h3 data-i18n="k4t">Four languages</h3><p data-i18n="k4">English, Spanish, German and Georgian, with a coach voice in each.</p></div>
+      </div>
+    </div>
+  </section>
 
-<h2>Documents</h2>
-<ul>
-  <li><a href="privacy.html#en">Privacy Policy</a></li>
-  <li><a href="terms.html#en">Terms of Use</a></li>
-  <li><a href="sources.html#en">How Giri calculates: formulas and sources</a></li>
-  <li><a href="credits.html#en">Credits and licences</a></li>
-</ul>
-</section>
+  <section id="inside">
+    <div class="wrap"><h2 class="lead rise" data-i18n="insideTitle">Take a look inside.</h2></div>
+    <div class="strip" tabindex="0" role="region" data-i18n-aria="insideAria" aria-label="App screenshots">
+      <img src="assets/promo-01-start.webp" alt="Start strong: your 30-day journey begins today" loading="lazy" width="720" height="1280">
+      <img src="assets/promo-02-workout.webp" alt="Work out every day: short guided workouts" loading="lazy" width="720" height="1280">
+      <img src="assets/promo-03-plan.webp" alt="30 days, one plan: level up week by week" loading="lazy" width="720" height="1280">
+      <img src="assets/promo-04-eat.webp" alt="Eat smarter: a daily meal plan made for you" loading="lazy" width="720" height="1280">
+      <img src="assets/promo-05-snap.webp" alt="Snap, count, done: calories from a single photo" loading="lazy" width="720" height="1280">
+      <img src="assets/promo-06-quests.webp" alt="Daily quests: complete goals, open reward chests" loading="lazy" width="720" height="1280">
+      <img src="assets/promo-07-habit.webp" alt="Build the habit: earn XP and keep your streak alive" loading="lazy" width="720" height="1280">
+      <img src="assets/promo-08-plus.webp" alt="Unlock Giri Plus: advanced programs and every outfit" loading="lazy" width="720" height="1280">
+    </div>
+  </section>
 
-<hr>
-
-<section lang="ka">
-<h1>Giri — მხარდაჭერა</h1>
-<p class="muted">30-დღიანი ვარჯიშისა და კვების პროგრამა</p>
-
-<h2>დაგვიკავშირდით</h2>
-<p>კითხვა, შეცდომა ან იდეა? მოგვწერეთ: <a href="mailto:kokabasket@hotmail.com">kokabasket@hotmail.com</a>. ჩვეულებრივ რამდენიმე დღეში ვპასუხობთ.</p>
-
-<h2>ხშირი კითხვები</h2>
-<ul>
-  <li><strong>როგორ გავაუქმო Giri Plus?</strong> iPhone-ის პარამეტრები → თქვენი სახელი → გამოწერები → Giri.</li>
-  <li><strong>როგორ აღვადგინო შენაძენი?</strong> Giri Plus-ის ეკრანზე დააჭირეთ „შენაძენების აღდგენას“.</li>
-  <li><strong>როგორ წავშალო ჩემი მონაცემები?</strong> აპში: პარამეტრები → მონაცემები → „ყველაფრის წაშლა“.</li>
-</ul>
-
-<h2>დოკუმენტები</h2>
-<ul>
-  <li><a href="privacy.html#ka">კონფიდენციალურობის პოლიტიკა</a></li>
-  <li><a href="terms.html#ka">გამოყენების პირობები</a></li>
-  <li><a href="sources.html#ka">როგორ ითვლის Giri: ფორმულები და წყაროები</a></li>
-  <li><a href="credits.html#ka">ლიცენზიები და მადლობები</a></li>
-</ul>
-</section>
-
+  <section class="final">
+    <div class="wrap">
+      <img class="giri rise" src="assets/giri-mascot.webp" alt="" loading="lazy" width="520" height="594">
+      <h2 class="rise" data-i18n="finalTitle">Day one starts today.</h2>
+      <p class="rise" data-i18n="finalSub">Free on iPhone. Ten minutes is enough to begin.</p>
+      <a class="store rise" href="https://apps.apple.com/app/id6820940443" data-i18n-aria="store">
+        <img src="assets/appstore-badge.svg" alt="Download on the App Store" width="168" height="56">
+      </a>
+    </div>
+  </section>
 </main>
+
+<footer>
+  <div class="wrap">
+    <p class="help"><span data-i18n="help">Questions or ideas? Write to</span> <a href="mailto:kokabasket@hotmail.com">kokabasket@hotmail.com</a></p>
+    <nav aria-label="Documents">
+      <a href="support.html" data-i18n="fSupport">Support</a>
+      <a href="privacy.html#en" data-doc="privacy" data-i18n="fPrivacy">Privacy</a>
+      <a href="terms.html#en" data-doc="terms" data-i18n="fTerms">Terms</a>
+      <a href="sources.html#en" data-doc="sources" data-i18n="fSources">Sources</a>
+      <a href="credits.html#en" data-doc="credits" data-i18n="fCredits">Credits</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var T = {
+    en: {},
+    ka: {
+      h1a: "30 დღე. სახლში.", h1b: "ინვენტარის გარეშე.",
+      heroSub: "მწვრთნელის ვიდეო ყველა სავარჯიშოზე, დღის მენიუ და შენს კვირაზე მორგებული გეგმა.",
+      coachTitle: "მწვრთნელი ყველა მოძრაობას გაჩვენებს.",
+      coachSub: "უყურე და გაიმეორე. ვარჯიშები 10-დან 45 წუთამდე, უფრო მსუბუქი ვარიანტებით მუხლის, ზურგის ან მაჯის პრობლემისას.",
+      bentoTitle: "დღისთვის საჭირო ყველაფერი ერთ ადგილას.",
+      menuTitle: "მენიუ შენს მიზანზე მორგებული", menuSub: "კერძები შენი კალორიებისა და ცილის მიხედვით. შეცვალე, რაც არ მოგწონს, და მიიღე სავაჭრო სია.",
+      photoTitle: "გადაუღე თეფშს", photoSub: "გადაიღე ფოტო და Giri კალორიებს შეაფასებს.",
+      winsTitle: "პატარა გამარჯვებები ყოველდღე", winsSub: "დღიური დავალებები, სერია და კვირის ლიგა.",
+      giriTitle: "გაიცანი Giri, შენი სავარჯიშო მეგობარი", giriSub: "დღეში ერთწუთიანი გაკვეთილი კვებაზე, ძილსა და ჩვევებზე, წყლის მიზანი და მეგობრული შეხსენებები შენს ჩვეულ დროს.",
+      kindTitle: "ზრუნვით შექმნილი.",
+      k1t: "ანგარიშისა და რეგისტრაციის გარეშე", k1: "გახსენი აპი და დაიწყე. პროფილი და პროგრესი შენს ტელეფონზე რჩება.",
+      k2t: "უსაფრთხო ზღვრები", k2: "18 წლამდე და ორსულობისას კალორიების შემცირება არ ხდება. მკაცრი დიეტები არ არის.",
+      k3t: "დაწყება უფასოა", k3: "დამწყების პროგრამა უფასოა. Giri Plus ამატებს რთულ პროგრამებს და დამატებით ფუნქციებს.",
+      k4t: "ოთხი ენა", k4: "ქართული, ინგლისური, ესპანური და გერმანული, მწვრთნელის ხმით თითოეულზე.",
+      insideTitle: "შეხედე შიგნიდან.", insideAria: "აპის სქრინშოტები",
+      finalTitle: "პირველი დღე დღეს იწყება.", finalSub: "უფასოდ iPhone-ზე. დასაწყებად ათი წუთიც საკმარისია.",
+      help: "კითხვა ან იდეა გაქვს? მოგვწერე:", fSupport: "მხარდაჭერა", fPrivacy: "კონფიდენციალურობა", fTerms: "პირობები", fSources: "წყაროები", fCredits: "ავტორები",
+      chipCoach: "ვიდეო ყველა სავარჯიშოზე", chipXp: "ვარჯიში დასრულდა", chipTime: "6 სავარჯიშო, 12 წუთი",
+      store: "ჩამოტვირთე App Store-იდან"
+    },
+    es: {
+      h1a: "30 días. En casa.", h1b: "Sin material.",
+      heroSub: "Un vídeo del entrenador en cada ejercicio, un menú diario y un plan hecho a tu semana.",
+      coachTitle: "Un entrenador te enseña cada movimiento.",
+      coachSub: "Mira el movimiento y repítelo. Sesiones de 10 a 45 minutos, con alternativas suaves si te molestan las rodillas, la espalda o las muñecas.",
+      bentoTitle: "Todo lo del día, en un solo lugar.",
+      menuTitle: "Un menú para tu objetivo", menuSub: "Comidas ajustadas a tus calorías y proteína. Cambia lo que no te apetezca y recibe la lista de la compra.",
+      photoTitle: "Fotografía tu plato", photoSub: "Haz una foto y Giri calcula las calorías.",
+      winsTitle: "Pequeños logros cada día", winsSub: "Misiones diarias, una racha que cuidar y una liga semanal.",
+      giriTitle: "Conoce a Giri, tu compañero de entreno", giriSub: "Una lección de un minuto al día sobre comida, sueño y hábitos, un objetivo de agua y recordatorios amables a tu hora.",
+      kindTitle: "Hecha con cuidado.",
+      k1t: "Sin cuenta ni registro", k1: "Abre la app y empieza. Tu perfil y tu progreso se quedan en tu teléfono.",
+      k2t: "Límites seguros", k2: "Sin recorte de calorías para menores de 18 años ni durante el embarazo, y sin dietas extremas.",
+      k3t: "Gratis para empezar", k3: "El programa de principiante es gratis. Giri Plus añade programas más exigentes y extras.",
+      k4t: "Cuatro idiomas", k4: "Español, inglés, alemán y georgiano, con la voz del entrenador en cada uno.",
+      insideTitle: "Echa un vistazo dentro.", insideAria: "Capturas de la app",
+      finalTitle: "El primer día empieza hoy.", finalSub: "Gratis en iPhone. Con diez minutos basta para empezar.",
+      help: "¿Preguntas o ideas? Escribe a", fSupport: "Ayuda", fPrivacy: "Privacidad", fTerms: "Condiciones", fSources: "Fuentes", fCredits: "Créditos",
+      chipCoach: "Vídeo del entrenador en cada ejercicio", chipXp: "Entreno completado", chipTime: "6 ejercicios, 12 min",
+      store: "Descargar en el App Store"
+    },
+    de: {
+      h1a: "30 Tage. Zu Hause.", h1b: "Ohne Geräte.",
+      heroSub: "Ein Coach-Video zu jeder Übung, ein täglicher Speiseplan und ein Plan, der zu deiner Woche passt.",
+      coachTitle: "Ein Coach zeigt dir jede Bewegung.",
+      coachSub: "Zuschauen und mitmachen. Einheiten von 10 bis 45 Minuten, mit sanfteren Varianten bei Knie-, Rücken- oder Handgelenkbeschwerden.",
+      bentoTitle: "Alles für den Tag, an einem Ort.",
+      menuTitle: "Ein Speiseplan für dein Ziel", menuSub: "Mahlzeiten passend zu deinen Kalorien und deinem Eiweiß. Tausche, was dir nicht schmeckt, und hol dir die Einkaufsliste.",
+      photoTitle: "Fotografiere deinen Teller", photoSub: "Mach ein Foto und Giri schätzt die Kalorien.",
+      winsTitle: "Kleine Erfolge jeden Tag", winsSub: "Tägliche Quests, ein Streak zum Halten und eine Wochenliga.",
+      giriTitle: "Das ist Giri, dein Trainingsbuddy", giriSub: "Jeden Tag eine Ein-Minuten-Lektion zu Essen, Schlaf und Gewohnheiten, ein Wasserziel und freundliche Erinnerungen zu deiner Zeit.",
+      kindTitle: "Mit Rücksicht gemacht.",
+      k1t: "Kein Konto, keine Anmeldung", k1: "App öffnen und loslegen. Profil und Fortschritt bleiben auf deinem Telefon.",
+      k2t: "Sichere Grenzen", k2: "Keine Kalorienreduktion für unter 18-Jährige oder in der Schwangerschaft, keine Crash-Diäten.",
+      k3t: "Kostenlos starten", k3: "Das Anfängerprogramm ist kostenlos. Giri Plus ergänzt schwerere Programme und Extras.",
+      k4t: "Vier Sprachen", k4: "Deutsch, Englisch, Spanisch und Georgisch, jeweils mit Coach-Stimme.",
+      insideTitle: "Wirf einen Blick hinein.", insideAria: "Screenshots der App",
+      finalTitle: "Tag eins beginnt heute.", finalSub: "Kostenlos auf dem iPhone. Zehn Minuten reichen für den Anfang.",
+      help: "Fragen oder Ideen? Schreib an", fSupport: "Hilfe", fPrivacy: "Datenschutz", fTerms: "Bedingungen", fSources: "Quellen", fCredits: "Credits",
+      chipCoach: "Coach-Video zu jeder Übung", chipXp: "Workout geschafft", chipTime: "6 Übungen, 12 Min.",
+      store: "Im App Store laden"
+    }
+  };
+  // Which languages each document page is written in; others open in English.
+  var DOCS = { privacy: ["en", "es", "de", "ka"], terms: ["en", "es", "de", "ka"], sources: ["en", "ka"], credits: ["en", "ka"] };
+
+  var nodes = document.querySelectorAll("[data-i18n]");
+  nodes.forEach(function (n) { T.en[n.getAttribute("data-i18n")] = n.textContent; });
+  T.en.store = "Download on the App Store";
+  T.en.insideAria = "App screenshots";
+
+  function apply(lang) {
+    var d = T[lang] || T.en;
+    nodes.forEach(function (n) { var k = n.getAttribute("data-i18n"); n.textContent = d[k] || T.en[k]; });
+    document.querySelectorAll("[data-i18n-aria]").forEach(function (n) { var k = n.getAttribute("data-i18n-aria"); n.setAttribute("aria-label", d[k] || T.en[k]); });
+    document.querySelectorAll("[data-doc]").forEach(function (a) {
+      var doc = a.getAttribute("data-doc");
+      a.href = doc + ".html#" + (DOCS[doc].indexOf(lang) >= 0 ? lang : "en");
+    });
+    document.querySelectorAll(".langs button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-lang") === lang)); });
+    document.documentElement.lang = lang;
+  }
+
+  var saved = null;
+  try { saved = localStorage.getItem("giri.lang"); } catch (e) {}
+  var guess = (navigator.language || "en").slice(0, 2).toLowerCase();
+  var asked = (new URLSearchParams(location.search).get("lang") || "").toLowerCase();
+  apply(T[asked] ? asked : T[saved] ? saved : (T[guess] ? guess : "en"));
+
+  document.querySelectorAll(".langs button").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var l = b.getAttribute("data-lang");
+      apply(l);
+      try { localStorage.setItem("giri.lang", l); } catch (e) {}
+    });
+  });
+
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var rise = document.querySelectorAll(".rise");
+  if (!("IntersectionObserver" in window)) { rise.forEach(function (el) { el.classList.add("in"); }); return; }
+
+  // Reveal each block as it scrolls in.
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  rise.forEach(function (el) { io.observe(el); });
+
+  // Coach clips load and play only while on screen; still posters under reduced motion.
+  if (reduce) return;
+  var vo = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      var v = e.target;
+      if (e.isIntersecting) {
+        if (!v.getAttribute("src")) v.src = v.getAttribute("data-src");
+        var p = v.play(); if (p && p.catch) p.catch(function () {});
+      } else { v.pause(); }
+    });
+  }, { threshold: 0.25 });
+  document.querySelectorAll(".clip video").forEach(function (v) { vo.observe(v); });
+})();
+</script>
 </body>
 </html>
