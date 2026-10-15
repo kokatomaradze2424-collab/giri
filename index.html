@@ -53,8 +53,11 @@
   .langs { margin-left: auto; display: flex; gap: 2px; background: var(--surface); border-radius: 999px; padding: 4px; }
   .langs button {
     font: 700 13px/1 "FiraGO", system-ui, sans-serif; color: var(--muted); background: none; border: 0;
-    padding: 8px 10px; border-radius: 999px; cursor: pointer; transition: color .2s, background .2s;
+    padding: 7px 10px 7px 8px; border-radius: 999px; cursor: pointer; transition: color .2s, background .2s;
+    display: inline-flex; align-items: center; gap: 6px;
   }
+  .langs .flag { width: 20px; height: 14px; border-radius: 3px; flex: none; box-shadow: 0 0 0 1px rgb(255 255 255 / 0.12); opacity: .7; transition: opacity .2s; }
+  .langs button[aria-pressed="true"] .flag, .langs button:hover .flag { opacity: 1; }
   .langs button[aria-pressed="true"] { background: var(--surface-2); color: var(--text); }
   .langs button:focus-visible, .store:focus-visible, a:focus-visible, .strip:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
@@ -216,7 +219,11 @@
     .poster.b { height: 86%; right: 3%; }
     .chip.xp { left: 4%; }
   }
-  @media (max-width: 380px) { .langs button { padding: 8px 7px; } }
+  @media (max-width: 480px) {
+    .langs button { padding: 8px 9px; }
+    .langs button span { display: none; }
+    .langs .flag { width: 22px; height: 15px; }
+  }
 </style>
 <script>document.documentElement.classList.add("js");</script>
 </head>
@@ -229,10 +236,10 @@
       <span>Giri</span>
     </a>
     <div class="langs" role="group" aria-label="Language">
-      <button type="button" data-lang="en">EN</button>
-      <button type="button" data-lang="ka">KA</button>
-      <button type="button" data-lang="es">ES</button>
-      <button type="button" data-lang="de">DE</button>
+      <button type="button" data-lang="en" aria-label="English" title="English"><svg class="flag" viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><clipPath id="uk-t"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><path d="M0,0v30h60v-30z" fill="#012169"/><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" clip-path="url(#uk-t)" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></svg><span>EN</span></button>
+      <button type="button" data-lang="ka" aria-label="ქართული" title="ქართული"><svg class="flag" viewBox="0 0 300 200" aria-hidden="true"><path d="M0,0h300v200h-300z" fill="#fff"/><path d="M130,0h40v80h130v40h-130v80h-40v-80h-130v-40h130zM61,23h8v13h13v8h-13v13h-8v-13h-13v-8h13zM231,23h8v13h13v8h-13v13h-8v-13h-13v-8h13zM61,143h8v13h13v8h-13v13h-8v-13h-13v-8h13zM231,143h8v13h13v8h-13v13h-8v-13h-13v-8h13z" fill="#E8112D"/></svg><span>KA</span></button>
+      <button type="button" data-lang="es" aria-label="Español" title="Español"><svg class="flag" viewBox="0 0 3 2" aria-hidden="true"><path d="M0,0h3v2h-3z" fill="#AA151B"/><path d="M0,.5h3v1h-3z" fill="#F1BF00"/></svg><span>ES</span></button>
+      <button type="button" data-lang="de" aria-label="Deutsch" title="Deutsch"><svg class="flag" viewBox="0 0 5 3" aria-hidden="true"><path d="M0,0h5v1h-5z" fill="#000"/><path d="M0,1h5v1h-5z" fill="#DD0000"/><path d="M0,2h5v1h-5z" fill="#FFCE00"/></svg><span>DE</span></button>
     </div>
     <a class="store" href="https://apps.apple.com/app/id6820940443" data-i18n-aria="store">
       <img src="assets/appstore-badge.svg" alt="Download on the App Store" width="120" height="40">
