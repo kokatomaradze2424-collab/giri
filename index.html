@@ -65,6 +65,18 @@
   .store:active { transform: scale(0.97); }
   .store img { height: 56px; width: auto; }
   .nav .store img { height: 40px; }
+  /* Google Play is not out yet: same shape as the App Store badge, not a link. */
+  .stores { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .play {
+    --h: 56px; height: var(--h); box-sizing: border-box; display: inline-flex; align-items: center; gap: calc(var(--h) * .2);
+    padding: 0 calc(var(--h) * .32) 0 calc(var(--h) * .26); background: #000; color: #fff;
+    border: 1px solid #A6A6A6; border-radius: calc(var(--h) * .19); cursor: default; white-space: nowrap;
+  }
+  .play svg { width: calc(var(--h) * .42); height: auto; flex: none; }
+  .play > span { display: flex; flex-direction: column; line-height: 1; }
+  .play small { font: 500 calc(var(--h) * .19)/1 system-ui, sans-serif; opacity: .85; text-transform: uppercase; letter-spacing: .02em; }
+  .play b { font: 600 calc(var(--h) * .41)/1.05 system-ui, sans-serif; letter-spacing: -.01em; }
+  .nav-play { --h: 40px; }
 
   /* Hero: copy left, two real screenshots right */
   .hero { padding: 56px 0 40px; }
@@ -76,7 +88,7 @@
   html[lang="ka"] .hero h1 { font-size: clamp(34px, 3.9vw, 56px); line-height: 1.15; }
   .hero h1 .accent { color: var(--accent); }
   .hero p { margin-top: 20px; font-size: 19px; color: var(--muted); max-width: 30em; }
-  .hero .store { margin-top: 32px; }
+  .hero .stores { margin-top: 32px; }
   /* Two iPhones (a CSS frame around real screenshots) with floating glass cards. */
   .phones { position: relative; height: min(660px, 76vh); }
   .phone {
@@ -158,7 +170,7 @@
   .final img.giri { width: 180px; margin: 0 auto 24px; }
   .final h2 { font-size: clamp(34px, 5vw, 56px); line-height: 1.06; }
   .final p { margin: 16px auto 0; color: var(--muted); max-width: 30em; }
-  .final .store { margin-top: 32px; }
+  .final .stores { margin-top: 32px; justify-content: center; }
 
   footer { border-top: 1px solid var(--line); padding: 40px 0 56px; font-size: 15px; color: var(--muted); }
   footer .wrap { display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: baseline; justify-content: space-between; }
@@ -202,13 +214,16 @@
     body { font-size: 16px; }
     .wrap { padding: 0 16px; }
     section { padding: 72px 0; }
-    .nav .store { display: none; }
+    .nav .store, .nav-play { display: none; }
     .clips { grid-template-columns: repeat(2, 1fr); gap: 12px; padding-bottom: 0; }
     .clip:nth-child(even) { margin: 0; }
     .kind { grid-template-columns: 1fr; gap: 28px; }
     .strip { padding: 8px 16px 24px; }
     .strip img { width: 240px; }
     .store img { height: 52px; }
+    .stores { gap: 10px; }
+    .stores .store img { height: 46px; }
+    .play { --h: 46px; }
     .phones { height: 470px; }
     .chip { padding: 9px 14px 9px 9px; gap: 9px; border-radius: 18px; }
     .chip b { font-size: 22px; }
@@ -244,6 +259,7 @@
     <a class="store" href="https://apps.apple.com/app/id6820940443" data-i18n-aria="store">
       <img src="assets/appstore-badge.svg" alt="Download on the App Store" width="120" height="40">
     </a>
+    <span class="play nav-play" role="img" data-i18n-aria="playAria" aria-label="Coming soon on Google Play"><svg viewBox="0 0 24 26" aria-hidden="true"><path d="M1.2,.6L13.5,13L1.2,25.4C.9,25.1.7,24.6.7,24V2C.7,1.4.9.9,1.2.6Z" fill="#4285F4"/><path d="M1.2,.6C1.7.1,2.5,0,3.4.5L17.6,8.6L13.5,13Z" fill="#34A853"/><path d="M1.2,25.4L13.5,13L17.6,17.4L3.4,25.5C2.5,26,1.7,25.9,1.2,25.4Z" fill="#EA4335"/><path d="M17.6,8.6L22.3,11.3C23.6,12.1,23.6,13.9,22.3,14.7L17.6,17.4L13.5,13Z" fill="#FBBC04"/></svg><span><small data-i18n="playSoon">Coming soon on</small><b>Google Play</b></span></span>
   </div>
 </header>
 
@@ -253,9 +269,12 @@
       <div>
         <h1 class="rise" style="--i:0"><span data-i18n="h1a">30 days. At home.</span><span class="accent" data-i18n="h1b">No equipment.</span></h1>
         <p class="rise" style="--i:1" data-i18n="heroSub">A coach video for every move, a daily menu and a plan built around your week.</p>
-        <a class="store rise" style="--i:2" href="https://apps.apple.com/app/id6820940443" data-i18n-aria="store">
-          <img src="assets/appstore-badge.svg" alt="Download on the App Store" width="168" height="56">
-        </a>
+        <div class="stores rise" style="--i:2">
+          <a class="store" href="https://apps.apple.com/app/id6820940443" data-i18n-aria="store">
+            <img src="assets/appstore-badge.svg" alt="Download on the App Store" width="168" height="56">
+          </a>
+          <span class="play" role="img" data-i18n-aria="playAria" aria-label="Coming soon on Google Play"><svg viewBox="0 0 24 26" aria-hidden="true"><path d="M1.2,.6L13.5,13L1.2,25.4C.9,25.1.7,24.6.7,24V2C.7,1.4.9.9,1.2.6Z" fill="#4285F4"/><path d="M1.2,.6C1.7.1,2.5,0,3.4.5L17.6,8.6L13.5,13Z" fill="#34A853"/><path d="M1.2,25.4L13.5,13L17.6,17.4L3.4,25.5C2.5,26,1.7,25.9,1.2,25.4Z" fill="#EA4335"/><path d="M17.6,8.6L22.3,11.3C23.6,12.1,23.6,13.9,22.3,14.7L17.6,17.4L13.5,13Z" fill="#FBBC04"/></svg><span><small data-i18n="playSoon">Coming soon on</small><b>Google Play</b></span></span>
+        </div>
       </div>
       <div class="phones" aria-hidden="true">
         <img class="poster a" src="assets/store-02-coach-every-move.webp" alt="" width="720" height="1290">
@@ -346,9 +365,12 @@
       <img class="giri rise" src="assets/giri-mascot.webp" alt="" loading="lazy" width="520" height="594">
       <h2 class="rise" data-i18n="finalTitle">Day one starts today.</h2>
       <p class="rise" data-i18n="finalSub">Free on iPhone. Ten minutes is enough to begin.</p>
-      <a class="store rise" href="https://apps.apple.com/app/id6820940443" data-i18n-aria="store">
-        <img src="assets/appstore-badge.svg" alt="Download on the App Store" width="168" height="56">
-      </a>
+      <div class="stores rise">
+        <a class="store" href="https://apps.apple.com/app/id6820940443" data-i18n-aria="store">
+          <img src="assets/appstore-badge.svg" alt="Download on the App Store" width="168" height="56">
+        </a>
+        <span class="play" role="img" data-i18n-aria="playAria" aria-label="Coming soon on Google Play"><svg viewBox="0 0 24 26" aria-hidden="true"><path d="M1.2,.6L13.5,13L1.2,25.4C.9,25.1.7,24.6.7,24V2C.7,1.4.9.9,1.2.6Z" fill="#4285F4"/><path d="M1.2,.6C1.7.1,2.5,0,3.4.5L17.6,8.6L13.5,13Z" fill="#34A853"/><path d="M1.2,25.4L13.5,13L17.6,17.4L3.4,25.5C2.5,26,1.7,25.9,1.2,25.4Z" fill="#EA4335"/><path d="M17.6,8.6L22.3,11.3C23.6,12.1,23.6,13.9,22.3,14.7L17.6,17.4L13.5,13Z" fill="#FBBC04"/></svg><span><small data-i18n="playSoon">Coming soon on</small><b>Google Play</b></span></span>
+      </div>
     </div>
   </section>
 </main>
@@ -389,7 +411,8 @@
       finalTitle: "პირველი დღე დღეს იწყება.", finalSub: "უფასოდ iPhone-ზე. დასაწყებად ათი წუთიც საკმარისია.",
       help: "კითხვა ან იდეა გაქვს? მოგვწერე:", fSupport: "მხარდაჭერა", fPrivacy: "კონფიდენციალურობა", fTerms: "პირობები", fSources: "წყაროები", fCredits: "ავტორები",
       chipCoach: "ვიდეო ყველა სავარჯიშოზე", chipXp: "ვარჯიში დასრულდა", chipTime: "6 სავარჯიშო, 12 წუთი",
-      store: "ჩამოტვირთე App Store-იდან"
+      store: "ჩამოტვირთე App Store-იდან",
+      playSoon: "მალე", playAria: "მალე Google Play-ზე"
     },
     es: {
       h1a: "30 días. En casa.", h1b: "Sin material.",
@@ -410,7 +433,8 @@
       finalTitle: "El primer día empieza hoy.", finalSub: "Gratis en iPhone. Con diez minutos basta para empezar.",
       help: "¿Preguntas o ideas? Escribe a", fSupport: "Ayuda", fPrivacy: "Privacidad", fTerms: "Condiciones", fSources: "Fuentes", fCredits: "Créditos",
       chipCoach: "Vídeo del entrenador en cada ejercicio", chipXp: "Entreno completado", chipTime: "6 ejercicios, 12 min",
-      store: "Descargar en el App Store"
+      store: "Descargar en el App Store",
+      playSoon: "Próximamente en", playAria: "Próximamente en Google Play"
     },
     de: {
       h1a: "30 Tage. Zu Hause.", h1b: "Ohne Geräte.",
@@ -431,7 +455,8 @@
       finalTitle: "Tag eins beginnt heute.", finalSub: "Kostenlos auf dem iPhone. Zehn Minuten reichen für den Anfang.",
       help: "Fragen oder Ideen? Schreib an", fSupport: "Hilfe", fPrivacy: "Datenschutz", fTerms: "Bedingungen", fSources: "Quellen", fCredits: "Credits",
       chipCoach: "Coach-Video zu jeder Übung", chipXp: "Workout geschafft", chipTime: "6 Übungen, 12 Min.",
-      store: "Im App Store laden"
+      store: "Im App Store laden",
+      playSoon: "Bald auf", playAria: "Bald auf Google Play"
     }
   };
   // Which languages each document page is written in; others open in English.
@@ -440,6 +465,7 @@
   var nodes = document.querySelectorAll("[data-i18n]");
   nodes.forEach(function (n) { T.en[n.getAttribute("data-i18n")] = n.textContent; });
   T.en.store = "Download on the App Store";
+  T.en.playAria = "Coming soon on Google Play";
   T.en.insideAria = "App screenshots";
 
   function apply(lang) {
