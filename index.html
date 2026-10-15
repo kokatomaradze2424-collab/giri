@@ -90,7 +90,7 @@
   .phone.a { width: 46%; left: 0; top: 9%; rotate: -7deg; --h: 470px; }
   .phone.b { width: 52%; right: 3%; top: 0; rotate: 4deg; z-index: 1; --h: 540px; }
   /* Two promo posters, the front one tilted over the back one. */
-  .poster { position: absolute; border-radius: 28px; aspect-ratio: 720 / 1280; object-fit: cover; box-shadow: 0 0 0 1px rgb(255 255 255 / 0.10), 0 40px 90px rgb(3 6 10 / 0.6); }
+  .poster { position: absolute; border-radius: 28px; aspect-ratio: 720 / 1290; object-fit: cover; box-shadow: 0 0 0 1px rgb(255 255 255 / 0.10), 0 40px 90px rgb(3 6 10 / 0.6); }
   .poster.a { height: 86%; width: auto; left: 0; top: 10%; rotate: -7deg; }
   .poster.b { height: 92%; width: auto; right: 2%; top: 0; rotate: 4deg; z-index: 1; }
   .poster, .strip img, .cell .shot, .clip video, .c-giri img { transition: rotate .6s var(--ease), translate .6s var(--ease), scale .6s var(--ease), box-shadow .6s var(--ease); }
@@ -147,7 +147,7 @@
 
   /* Look inside: scroll-snap strip of screenshots */
   .strip { margin-top: 24px; display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 28px 20px 32px; scrollbar-width: thin; scrollbar-color: var(--line) transparent; }
-  .strip img { flex: 0 0 auto; width: 280px; aspect-ratio: 720 / 1280; object-fit: cover; border-radius: 26px; box-shadow: 0 0 0 1px rgb(255 255 255 / 0.10); scroll-snap-align: center; }
+  .strip img { flex: 0 0 auto; width: 280px; aspect-ratio: 720 / 1290; object-fit: cover; border-radius: 26px; box-shadow: 0 0 0 1px rgb(255 255 255 / 0.10); scroll-snap-align: center; }
   @media (min-width: 1180px) { .strip { padding-left: calc((100vw - 1180px) / 2 + 20px); } }
 
   /* Final call */
@@ -251,8 +251,8 @@
         </a>
       </div>
       <div class="phones" aria-hidden="true">
-        <img class="poster a" src="assets/promo-02-workout.webp" alt="" width="720" height="1280">
-        <img class="poster b" src="assets/promo-01-start.webp" alt="" width="720" height="1280" fetchpriority="high">
+        <img class="poster a" src="assets/store-02-coach-every-move.webp" alt="" width="720" height="1290">
+        <img class="poster b" src="assets/store-01-get-fit-at-home.webp" alt="" width="720" height="1290" fetchpriority="high">
         <div class="chip coach"><img class="face" src="assets/coach-squat.webp" alt="" width="44" height="44"><span data-i18n="chipCoach">Coach video for every move</span></div>
       </div>
     </div>
@@ -323,14 +323,14 @@
   <section id="inside">
     <div class="wrap"><h2 class="lead rise" data-i18n="insideTitle">Take a look inside.</h2></div>
     <div class="strip" tabindex="0" role="region" data-i18n-aria="insideAria" aria-label="App screenshots">
-      <img src="assets/promo-01-start.webp" alt="Start strong: your 30-day journey begins today" loading="lazy" width="720" height="1280">
-      <img src="assets/promo-02-workout.webp" alt="Work out every day: short guided workouts" loading="lazy" width="720" height="1280">
-      <img src="assets/promo-03-plan.webp" alt="30 days, one plan: level up week by week" loading="lazy" width="720" height="1280">
-      <img src="assets/promo-04-eat.webp" alt="Eat smarter: a daily meal plan made for you" loading="lazy" width="720" height="1280">
-      <img src="assets/promo-05-snap.webp" alt="Snap, count, done: calories from a single photo" loading="lazy" width="720" height="1280">
-      <img src="assets/promo-06-quests.webp" alt="Daily quests: complete goals, open reward chests" loading="lazy" width="720" height="1280">
-      <img src="assets/promo-07-habit.webp" alt="Build the habit: earn XP and keep your streak alive" loading="lazy" width="720" height="1280">
-      <img src="assets/promo-08-plus.webp" alt="Unlock Giri Plus: advanced programs and every outfit" loading="lazy" width="720" height="1280">
+      <img src="assets/store-01-get-fit-at-home.webp" alt="Get fit at home in 30 days: no equipment, 10 minutes a day" loading="lazy" width="720" height="1290">
+      <img src="assets/store-02-coach-every-move.webp" alt="A coach for every move: watch, follow, repeat" loading="lazy" width="720" height="1290">
+      <img src="assets/store-03-harder-every-week.webp" alt="Harder every week: your plan grows with you" loading="lazy" width="720" height="1290">
+      <img src="assets/store-04-meals-for-your-goal.webp" alt="Meals built for your goal: calories and protein, planned daily" loading="lazy" width="720" height="1290">
+      <img src="assets/store-05-snap-your-plate.webp" alt="Snap your plate, get calories: just take a photo" loading="lazy" width="720" height="1290">
+      <img src="assets/store-06-small-wins.webp" alt="Small wins every day: daily quests and reward chests" loading="lazy" width="720" height="1290">
+      <img src="assets/store-07-keep-your-streak.webp" alt="Keep your streak alive: earn XP for every healthy day" loading="lazy" width="720" height="1290">
+      <img src="assets/store-08-start-free-today.webp" alt="Start free today: no account, no equipment, Giri Plus for more" loading="lazy" width="720" height="1290">
     </div>
   </section>
 
