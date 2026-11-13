@@ -26,7 +26,7 @@
 
 <section id="en" lang="en">
 <h1>Giri — Privacy Policy</h1>
-<p class="muted">Effective 14 October 2026</p>
+<p class="muted">Effective 13 November 2026</p>
 
 <p>Giri is a workout and nutrition app made by an independent developer based in Georgia. This page explains what data the app uses and where it is kept. In short: almost everything stays on your phone.</p>
 
@@ -39,8 +39,8 @@
 
 <h2>Where it is kept</h2>
 <p>Your profile and progress are stored only on your device. The app has no accounts and this data is never sent to our server. We cannot see it.</p>
-<p>There are two exceptions. The first is your answer to “how did you hear about the app”: when you finish the questionnaire it is sent to our server once, anonymously — only the answer itself (for example, “Instagram”) and the app language. It carries no name, device identifier or other data, so it cannot be linked to you. We use it only for overall statistics.</p>
-<p>The second is the invite program, described below.</p>
+<p>There are three exceptions. The first is your answer to “how did you hear about the app”: when you finish the questionnaire it is sent to our server once, anonymously — only the answer itself (for example, “Instagram”) and the app language. It carries no name, device identifier or other data, so it cannot be linked to you. We use it only for overall statistics.</p>
+<p>The second is the invite program and the third is the online league, both described below.</p>
 
 <h2>Invite codes</h2>
 <p>Every copy of the app gets an invite code to share with friends. To make this work, the app sends our server a random identifier it created on your device (the server stores only a one-way hash of it), your invite code and — only if you type one in during the questionnaire — a friend’s code. When an invited friend buys Giri Plus, their app also sends its RevenueCat identifier so the server can confirm the purchase with RevenueCat and give the reward; only a one-way hash of it is stored. No name, email, profile or other data is sent.</p>
@@ -49,9 +49,12 @@
 <p>Step counting is optional and starts only when you turn it on. Giri then reads your daily step count: on iPhone from the phone’s motion sensor (Motion &amp; Fitness), on Android from Health Connect, where Giri asks only for permission to <em>read</em> Steps. Giri does not write anything to Health Connect.</p>
 <ul>
   <li>Steps are used only to show your daily activity, an estimate of the calories you burn and your place in the weekly league inside the app.</li>
-  <li>They stay on your device and are never sent to our server or to anyone else, and are never used for advertising.</li>
+  <li>They stay on your device. The only exception is the online league: while it is on, this week’s total is sent to our server (see below). Steps are never used for advertising.</li>
   <li>You can withdraw access at any time: on iPhone in Settings → Privacy &amp; Security → Motion &amp; Fitness, on Android in Health Connect → App permissions → Giri.</li>
 </ul>
+
+<h2>Online league</h2>
+<p>The weekly league can include real Giri players. While “Online league” is on (Settings → Data), the app sends our server the random identifier described above (stored only as a one-way hash), the name you entered in the app, your Giri outfit, your league level and this week’s step total (or XP on phones that cannot count steps), plus the app language and your time zone. Other players in your league group see your name, outfit and weekly total. If you allow notifications, the app also sends a push token so we can tell you when another player passes you; these messages are delivered through Expo’s push service (650 Industries, Inc., USA) and Apple. Entries older than three weeks are deleted. Turning “Online league” off or using “Delete everything” removes your entry from the server.</p>
 
 <h2>Meal photos and AI</h2>
 <p>Counting calories from a photo is optional, and the app asks for your consent before the first use. After you agree:</p>
@@ -99,7 +102,7 @@
 
 <section id="es" lang="es">
 <h1>Giri — Política de privacidad</h1>
-<p class="muted">En vigor desde el 14 de octubre de 2026</p>
+<p class="muted">En vigor desde el 13 de noviembre de 2026</p>
 
 <p>Giri es una app de ejercicio y nutrición creada por un desarrollador independiente de Georgia. Esta página explica qué datos usa la app y dónde se guardan. En resumen: casi todo se queda en tu teléfono.</p>
 
@@ -112,8 +115,8 @@
 
 <h2>Dónde se guardan</h2>
 <p>Tu perfil y tu progreso se guardan únicamente en tu dispositivo. La app no tiene cuentas y estos datos nunca se envían a nuestro servidor. No podemos verlos.</p>
-<p>Hay dos excepciones. La primera es tu respuesta a «cómo conociste la app»: al terminar el cuestionario se envía una vez a nuestro servidor de forma anónima; solo la respuesta (por ejemplo, «Instagram») y el idioma de la app. No incluye nombre, identificador del dispositivo ni otros datos, así que no puede vincularse contigo. La usamos solo para estadísticas generales.</p>
-<p>La segunda es el programa de invitaciones, descrito más abajo.</p>
+<p>Hay tres excepciones. La primera es tu respuesta a «cómo conociste la app»: al terminar el cuestionario se envía una vez a nuestro servidor de forma anónima; solo la respuesta (por ejemplo, «Instagram») y el idioma de la app. No incluye nombre, identificador del dispositivo ni otros datos, así que no puede vincularse contigo. La usamos solo para estadísticas generales.</p>
+<p>La segunda es el programa de invitaciones y la tercera, la liga en línea; ambas se describen más abajo.</p>
 
 <h2>Códigos de invitación</h2>
 <p>Cada copia de la app tiene un código de invitación para compartir con amigos. Para que funcione, la app envía a nuestro servidor un identificador aleatorio creado en tu dispositivo (el servidor guarda solo un hash irreversible), tu código de invitación y —solo si escribes uno durante el cuestionario— el código de un amigo. Cuando un amigo invitado compra Giri Plus, su app envía también su identificador de RevenueCat para que el servidor confirme la compra con RevenueCat y entregue la recompensa; solo se guarda un hash irreversible. No se envían nombre, correo, perfil ni otros datos.</p>
@@ -122,9 +125,12 @@
 <p>El conteo de pasos es opcional y solo empieza cuando lo activas. Entonces Giri lee tus pasos diarios: en iPhone, del sensor de movimiento del teléfono (Actividad física y movimiento); en Android, de Health Connect, donde Giri solo pide permiso para <em>leer</em> Pasos. Giri no escribe nada en Health Connect.</p>
 <ul>
   <li>Los pasos se usan solo para mostrar tu actividad diaria, una estimación de las calorías quemadas y tu puesto en la liga semanal dentro de la app.</li>
-  <li>Se quedan en tu dispositivo, nunca se envían a nuestro servidor ni a nadie más y nunca se usan para publicidad.</li>
+  <li>Se quedan en tu dispositivo. La única excepción es la liga en línea: mientras está activada, el total de la semana se envía a nuestro servidor (ver abajo). Los pasos nunca se usan para publicidad.</li>
   <li>Puedes retirar el acceso cuando quieras: en iPhone, en Ajustes → Privacidad y seguridad → Actividad física y movimiento; en Android, en Health Connect → Permisos de apps → Giri.</li>
 </ul>
+
+<h2>Liga en línea</h2>
+<p>La liga semanal puede incluir a jugadores reales de Giri. Mientras «Liga en línea» está activada (Ajustes → Datos), la app envía a nuestro servidor el identificador aleatorio descrito arriba (guardado solo como hash irreversible), el nombre que escribiste en la app, el atuendo de Giri, tu nivel de liga y el total de pasos de esta semana (o XP en teléfonos que no cuentan pasos), además del idioma de la app y tu zona horaria. Los demás jugadores de tu grupo ven tu nombre, tu atuendo y tu total semanal. Si permites las notificaciones, la app envía también un token de notificaciones para avisarte cuando otro jugador te adelanta; estos avisos se entregan a través del servicio de notificaciones de Expo (650 Industries, Inc., EE. UU.) y Apple. Los registros de más de tres semanas se borran. Al desactivar «Liga en línea» o usar «Borrar todo», tu registro se elimina del servidor.</p>
 
 <h2>Fotos de comida e IA</h2>
 <p>Contar calorías a partir de una foto es opcional, y la app te pide tu consentimiento antes del primer uso. Después de aceptar:</p>
@@ -172,7 +178,7 @@
 
 <section id="de" lang="de">
 <h1>Giri — Datenschutzerklärung</h1>
-<p class="muted">Gültig ab dem 14. Oktober 2026</p>
+<p class="muted">Gültig ab dem 13. November 2026</p>
 
 <p>Giri ist eine Trainings- und Ernährungs-App eines unabhängigen Entwicklers aus Georgien. Diese Seite erklärt, welche Daten die App verwendet und wo sie gespeichert werden. Kurz gesagt: Fast alles bleibt auf deinem Telefon.</p>
 
@@ -185,8 +191,8 @@
 
 <h2>Wo sie gespeichert werden</h2>
 <p>Dein Profil und dein Fortschritt werden nur auf deinem Gerät gespeichert. Die App hat keine Konten, und diese Daten werden nie an unseren Server gesendet. Wir können sie nicht sehen.</p>
-<p>Es gibt zwei Ausnahmen. Die erste ist deine Antwort auf die Frage, wie du von der App erfahren hast: Nach dem Fragebogen wird sie einmalig und anonym an unseren Server gesendet, nur die Antwort selbst (zum Beispiel „Instagram“) und die Sprache der App. Sie enthält keinen Namen, keine Gerätekennung und keine weiteren Daten und lässt sich daher nicht mit dir verknüpfen. Wir nutzen sie nur für Gesamtstatistiken.</p>
-<p>Die zweite ist das Einladungsprogramm, unten beschrieben.</p>
+<p>Es gibt drei Ausnahmen. Die erste ist deine Antwort auf die Frage, wie du von der App erfahren hast: Nach dem Fragebogen wird sie einmalig und anonym an unseren Server gesendet, nur die Antwort selbst (zum Beispiel „Instagram“) und die Sprache der App. Sie enthält keinen Namen, keine Gerätekennung und keine weiteren Daten und lässt sich daher nicht mit dir verknüpfen. Wir nutzen sie nur für Gesamtstatistiken.</p>
+<p>Die zweite ist das Einladungsprogramm, die dritte die Online-Liga; beide sind unten beschrieben.</p>
 
 <h2>Einladungscodes</h2>
 <p>Jede Kopie der App erhält einen Einladungscode, den du mit Freunden teilen kannst. Dafür sendet die App an unseren Server eine zufällige Kennung, die auf deinem Gerät erzeugt wurde (der Server speichert nur einen nicht umkehrbaren Hash davon), deinen Einladungscode und – nur wenn du im Fragebogen einen eingibst – den Code eines Freundes. Kauft ein eingeladener Freund Giri Plus, sendet seine App zusätzlich ihre RevenueCat-Kennung, damit der Server den Kauf bei RevenueCat bestätigen und die Belohnung vergeben kann; gespeichert wird nur ein nicht umkehrbarer Hash. Name, E-Mail, Profil oder andere Daten werden nicht gesendet.</p>
@@ -195,9 +201,12 @@
 <p>Die Schrittzählung ist freiwillig und beginnt erst, wenn du sie einschaltest. Dann liest Giri deine täglichen Schritte: auf dem iPhone vom Bewegungssensor des Telefons (Bewegung &amp; Fitness), auf Android aus Health Connect, wo Giri nur die Berechtigung zum <em>Lesen</em> von Schritten anfragt. Giri schreibt nichts in Health Connect.</p>
 <ul>
   <li>Die Schritte werden nur genutzt, um in der App deine tägliche Aktivität, eine Schätzung der verbrannten Kalorien und deinen Platz in der Wochenliga zu zeigen.</li>
-  <li>Sie bleiben auf deinem Gerät, werden nie an unseren Server oder an Dritte gesendet und nie für Werbung verwendet.</li>
+  <li>Sie bleiben auf deinem Gerät. Die einzige Ausnahme ist die Online-Liga: Solange sie eingeschaltet ist, wird die Summe der Woche an unseren Server gesendet (siehe unten). Schritte werden nie für Werbung verwendet.</li>
   <li>Du kannst den Zugriff jederzeit widerrufen: auf dem iPhone unter Einstellungen → Datenschutz &amp; Sicherheit → Bewegung &amp; Fitness, auf Android unter Health Connect → App-Berechtigungen → Giri.</li>
 </ul>
+
+<h2>Online-Liga</h2>
+<p>In der Wochenliga können echte Giri-Spieler sein. Solange „Online-Liga“ eingeschaltet ist (Einstellungen → Daten), sendet die App an unseren Server die oben beschriebene zufällige Kennung (gespeichert nur als nicht umkehrbarer Hash), den Namen, den du in der App eingegeben hast, Giris Outfit, deine Ligastufe und die Schrittsumme dieser Woche (oder XP auf Telefonen, die keine Schritte zählen) sowie die Sprache der App und deine Zeitzone. Die anderen Spieler deiner Ligagruppe sehen deinen Namen, dein Outfit und deine Wochensumme. Wenn du Mitteilungen erlaubst, sendet die App außerdem ein Push-Token, damit wir dir sagen können, wenn dich ein anderer Spieler überholt; diese Mitteilungen werden über den Push-Dienst von Expo (650 Industries, Inc., USA) und Apple zugestellt. Einträge, die älter als drei Wochen sind, werden gelöscht. Wenn du „Online-Liga“ ausschaltest oder „Alles löschen“ nutzt, wird dein Eintrag vom Server entfernt.</p>
 
 <h2>Essensfotos und KI</h2>
 <p>Das Kalorienzählen per Foto ist freiwillig, und die App bittet vor der ersten Nutzung um deine Einwilligung. Nach deiner Zustimmung gilt:</p>
@@ -245,7 +254,7 @@
 
 <section id="ka" lang="ka">
 <h1>Giri — კონფიდენციალურობის პოლიტიკა</h1>
-<p class="muted">ძალაშია 2026 წლის 14 ოქტომბრიდან</p>
+<p class="muted">ძალაშია 2026 წლის 13 ნოემბრიდან</p>
 
 <p>Giri არის ვარჯიშისა და კვების აპლიკაცია, რომელსაც ამზადებს დამოუკიდებელი დეველოპერი საქართველოდან. ეს გვერდი აღწერს, რა მონაცემებს იყენებს აპი და სად ინახება ისინი. მოკლედ: თითქმის ყველაფერი მხოლოდ თქვენს ტელეფონზე რჩება.</p>
 
@@ -258,8 +267,8 @@
 
 <h2>სად ინახება</h2>
 <p>პროფილი და პროგრესი ინახება მხოლოდ თქვენს მოწყობილობაზე. აპს არ აქვს ანგარიშები და ეს მონაცემები ჩვენს სერვერზე არ იგზავნება. ჩვენ მათ ვერ ვხედავთ.</p>
-<p>არსებობს ორი გამონაკლისი. პირველია პასუხი კითხვაზე „საიდან გაიგეთ აპის შესახებ“: ანკეტის დასრულებისას ის ერთხელ იგზავნება ჩვენს სერვერზე ანონიმურად — მხოლოდ თავად პასუხი (მაგალითად, „Instagram“) და აპის ენა. მას არ ახლავს სახელი, მოწყობილობის იდენტიფიკატორი ან სხვა მონაცემი, ამიტომ თქვენთან ვერ დაკავშირდება. ვიყენებთ მხოლოდ საერთო სტატისტიკისთვის.</p>
-<p>მეორეა მოწვევის პროგრამა, რომელიც ქვემოთაა აღწერილი.</p>
+<p>არსებობს სამი გამონაკლისი. პირველია პასუხი კითხვაზე „საიდან გაიგეთ აპის შესახებ“: ანკეტის დასრულებისას ის ერთხელ იგზავნება ჩვენს სერვერზე ანონიმურად — მხოლოდ თავად პასუხი (მაგალითად, „Instagram“) და აპის ენა. მას არ ახლავს სახელი, მოწყობილობის იდენტიფიკატორი ან სხვა მონაცემი, ამიტომ თქვენთან ვერ დაკავშირდება. ვიყენებთ მხოლოდ საერთო სტატისტიკისთვის.</p>
+<p>მეორეა მოწვევის პროგრამა, მესამე — ონლაინ ლიგა; ორივე ქვემოთაა აღწერილი.</p>
 
 <h2>მოწვევის კოდები</h2>
 <p>აპის ყოველ ასლს აქვს მოწვევის კოდი მეგობრებისთვის გასაზიარებლად. ამისთვის აპი ჩვენს სერვერზე აგზავნის თქვენს მოწყობილობაზე შექმნილ შემთხვევით იდენტიფიკატორს (სერვერი ინახავს მხოლოდ მის შეუქცევად ჰეშს), თქვენს მოწვევის კოდს და — მხოლოდ თუ ანკეტაში შეიყვანთ — მეგობრის კოდს. როცა მოწვეული მეგობარი Giri Plus-ს ყიდულობს, მისი აპი აგზავნის RevenueCat-ის იდენტიფიკატორსაც, რომ სერვერმა RevenueCat-თან შეამოწმოს შენაძენი და ჯილდო გასცეს; ინახება მხოლოდ მისი შეუქცევადი ჰეში. სახელი, ელფოსტა, პროფილი და სხვა მონაცემები არ იგზავნება.</p>
@@ -268,9 +277,12 @@
 <p>ნაბიჯების დათვლა ნებაყოფლობითია და მხოლოდ თქვენი ჩართვის შემდეგ იწყება. ამის შემდეგ Giri კითხულობს დღის ნაბიჯებს: iPhone-ზე — ტელეფონის მოძრაობის სენსორიდან („მოძრაობა და ფიტნესი“), Android-ზე — Health Connect-იდან, სადაც Giri ითხოვს მხოლოდ ნაბიჯების <em>წაკითხვის</em> ნებართვას. Giri Health Connect-ში არაფერს წერს.</p>
 <ul>
   <li>ნაბიჯები გამოიყენება მხოლოდ აპში დღის აქტივობის, დამწვარი კალორიების შეფასებისა და კვირის ლიგაში თქვენი ადგილის საჩვენებლად.</li>
-  <li>ისინი რჩება თქვენს მოწყობილობაზე, არასდროს იგზავნება ჩვენს სერვერზე ან სხვაგან და არასდროს გამოიყენება რეკლამისთვის.</li>
+  <li>ისინი რჩება თქვენს მოწყობილობაზე. ერთადერთი გამონაკლისია ონლაინ ლიგა: სანამ ჩართულია, კვირის ჯამი იგზავნება ჩვენს სერვერზე (იხ. ქვემოთ). ნაბიჯები არასდროს გამოიყენება რეკლამისთვის.</li>
   <li>წვდომის გაუქმება ნებისმიერ დროს შეგიძლიათ: iPhone-ზე — Settings → Privacy &amp; Security → Motion &amp; Fitness, Android-ზე — Health Connect → App permissions → Giri.</li>
 </ul>
+
+<h2>ონლაინ ლიგა</h2>
+<p>კვირის ლიგაში შეიძლება იყვნენ Giri-ს ნამდვილი მოთამაშეები. სანამ „ონლაინ ლიგა“ ჩართულია (Settings → Data), აპი ჩვენს სერვერზე აგზავნის ზემოთ აღწერილ შემთხვევით იდენტიფიკატორს (ინახება მხოლოდ შეუქცევადი ჰეშის სახით), აპში შეყვანილ სახელს, Giri-ს ჩაცმულობას, ლიგის დონეს და ამ კვირის ნაბიჯების ჯამს (ან XP-ს ტელეფონებზე, რომლებიც ნაბიჯებს ვერ ითვლიან), ასევე აპის ენას და დროის სარტყელს. თქვენი ლიგის ჯგუფის სხვა მოთამაშეები ხედავენ თქვენს სახელს, ჩაცმულობას და კვირის ჯამს. თუ შეტყობინებებს დაუშვებთ, აპი აგზავნის push ტოკენსაც, რომ გაცნობოთ, როცა სხვა მოთამაშე გაგისწრებთ; ეს შეტყობინებები მოდის Expo-ს push სერვისით (650 Industries, Inc., აშშ) და Apple-ით. სამ კვირაზე ძველი ჩანაწერები იშლება. „ონლაინ ლიგის“ გამორთვისას ან „ყველაფრის წაშლისას“ თქვენი ჩანაწერი სერვერიდან იშლება.</p>
 
 <h2>კერძის ფოტო და ხელოვნური ინტელექტი</h2>
 <p>ფოტოთი კალორიების დათვლა ნებაყოფლობითია და პირველი გამოყენების წინ აპი თანხმობას გთხოვთ. თანხმობის შემდეგ:</p>
